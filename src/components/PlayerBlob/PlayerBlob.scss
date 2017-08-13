@@ -1,0 +1,89 @@
+@import "styles/tools/tools.transitions";
+
+@keyframes MoveAround
+{
+  0%
+  {
+    transform: translate(0, 0);
+  }
+  17%
+  {
+    transform: translate(15px, 12px);
+  }
+  42%
+  {
+    transform: translate(17px, 7px);
+  }
+  58%
+  {
+    transform: translate(8px, 0px);
+  }
+  67%
+  {
+    transform: translate(-5px, -3px);
+  }
+  78%
+  {
+    transform: translate(-10px, -7px);
+  }
+  89%
+  {
+    transform: translate(-3px, -2px);
+  }
+  100%
+  {
+    transform: translate(0, 0);
+  }
+}
+
+.PlayerBlob
+{
+  position: absolute;
+  top:      0;
+  left:     0;
+}
+
+.PlayerBlob__blobWrapper
+{
+
+  @include enterTransition(playerBlob, true)
+  {
+    opacity:   0;
+    transform: scale(0);
+  }
+
+  @include enterActiveTransition(playerBlob, true)
+  {
+    opacity:    1;
+    transform:  scale(1);
+    transition: opacity 300ms ease, transform 500ms ease;
+  }
+
+  @include leaveTransition(playerBlob, true)
+  {
+    opacity:   1;
+    transform: scale(1);
+  }
+
+  @include leaveActiveTransition(playerBlob, true)
+  {
+    opacity:    0;
+    transform:  scale(0);
+    transition: opacity 300ms ease, transform 300ms ease;
+  }
+
+}
+
+.PlayerBlob__blob
+{
+  width:            150px;
+  height:           150px;
+  border-radius:    50%;
+  background-color: #FFFFFF;
+  display:          flex;
+  align-items:      center;
+  justify-content:  center;
+  box-shadow:       0 2px 10px rgba(117, 128, 214, 0.57);
+  cursor:           pointer;
+  //animation:        MoveAround 10000ms linear infinite;
+}

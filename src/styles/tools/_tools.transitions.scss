@@ -1,0 +1,87 @@
+@mixin enterTransition($name, $parent: false) {
+
+  @if ($parent)
+  {
+
+    .#{$name}-enter &
+    {
+      @content;
+    }
+
+  } @else
+  {
+
+    &.#{$name}-enter
+    {
+      @content;
+    }
+
+  }
+
+}
+
+@mixin enterActiveTransition($name, $parent: false) {
+
+  @if ($parent)
+  {
+
+    .#{$name}-enter.#{$name}-enter-active &
+    {
+      @content;
+    }
+
+  } @else
+  {
+
+    &.#{$name}-enter.#{$name}-enter-active
+    {
+      @content;
+    }
+
+  }
+
+}
+
+@mixin leaveTransition($name, $parent: false) {
+
+  @if ($parent)
+  {
+
+    .#{$name}-leave &
+    {
+      @content;
+    }
+
+  } @else
+  {
+
+    &.#{$name}-leave
+    {
+      @content;
+    }
+
+  }
+
+}
+
+@mixin leaveActiveTransition($name, $parent: false) {
+
+  @if ($parent)
+  {
+
+    .#{$name}-leave.#{$name}-leave-active &
+    {
+      @content;
+    }
+
+  } @else
+  {
+
+    &.#{$name}-leave.#{$name}-leave-active
+    {
+      @content;
+    }
+
+  }
+
+}
